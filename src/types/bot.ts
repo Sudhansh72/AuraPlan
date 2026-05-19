@@ -15,6 +15,7 @@ export interface VendorMatch {
   type: string;
   location: string;
   description: string;
+  image_url?: string | null;
   estimated_price_range: string;
   review_snippet: string;
   sentiment_grade: "A" | "B" | "C" | "D" | "F";
@@ -31,8 +32,11 @@ export interface BotChatResponse {
   bot_response: string;
   matched_vendors: VendorMatch[];
   resource_images: ResourceImage[];
-  used_search: boolean;
+  used_search: boolean;
+  plan_update?: unknown;
   provider: string;
   bot_mode: BotMode;
   notes?: string | null;
 }
+
+

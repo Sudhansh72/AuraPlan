@@ -187,8 +187,8 @@ const DashboardPage: React.FC = () => {
             </div>
             <div className="flex items-center gap-4">
               {!isPreview && (
-                <button 
-                  onClick={handleOptimize}
+                <button 
+                  onClick={() => handleOptimize()}
                   disabled={isOptimizing}
                   className="flex items-center gap-3 px-6 py-4 rounded-2xl bg-white/5 text-indigo-400 border border-indigo-500/30 font-black text-sm uppercase tracking-wider hover:bg-indigo-500/10 transition-all disabled:opacity-50"
                 >
@@ -327,3 +327,5 @@ const SectionHeader: React.FC<{ icon: React.ReactNode, title: string }> = ({ ico
 );
 
 export default DashboardPage;
+
+
