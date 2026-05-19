@@ -69,6 +69,7 @@ export interface EventPlan {
   guest_count: number;
   budget_target: number;
   notes: string;
+  blueprint_url?: string | null;
 }
 
 // Auth Types
