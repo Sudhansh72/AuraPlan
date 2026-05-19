@@ -1,0 +1,32 @@
+services:
+  postgres:
+    image: postgres:16
+    container_name: auraplan-postgres
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: auraplan
+    ports:
+      - "5432:5432"
+    volumes:
+      - auraplan_postgres_data:/var/lib/postgresql/data
+
+  backend:
+    build:
+      context: .
+      dockerfile: backend/Dockerfile
+    container_name: auraplan-backend
+    depends_on:
+      - postgres
+    environment:
+      DATABASE_URL: postgresql+asyncpg://postgres:postgres@postgres:5432/auraplan
+      JWT_SECRET_KEY: dev-secret-key-change-in-production
+      FRONTEND_ORIGIN: http://localhost:5173
+      AI_PROVIDER: mock
+      CHAT_PROVIDER: mock
+      SEARCH_PROVIDER: mock
+    ports:
+      - "8000:8000"
+
+volumes:
+  auraplan_postgres_data:

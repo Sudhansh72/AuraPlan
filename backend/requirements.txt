@@ -1,0 +1,14 @@
+fastapi
+uvicorn[standard]
+pydantic
+pydantic[email]
+python-dotenv
+SQLAlchemy
+asyncpg
+PyJWT
+bcrypt
+google-genai
+httpx
+duckduckgo-search
+gunicorn
+uvicorn-worker
